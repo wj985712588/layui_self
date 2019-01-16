@@ -1647,6 +1647,9 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
     that.layBody.on('click', '*[lay-event]', function(){
       var othis = $(this)
       ,index = othis.parents('tr').eq(0).data('index');
+      if(othis.hasClass("layui-disabled")){
+        return;
+      }
       layui.event.call(this, MOD_NAME, 'tool('+ filter +')', commonMember.call(this, {
         event: othis.attr('lay-event')
       }));
