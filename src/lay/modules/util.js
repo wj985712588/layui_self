@@ -25,13 +25,16 @@ layui.define('jquery', function(exports){
       
       options.bar1 = options.bar1 === true ? '&#xe606;' : options.bar1;
       options.bar2 = options.bar2 === true ? '&#xe607;' : options.bar2;
+      options.title1 = options.title1 === undefined ? "" : options.title1;
+      options.title2 = options.title2 === undefined ? "" : options.title2;
+      options.topTitle = options.topTitle === undefined ? "返回顶部" : options.topTitle,
       options.bgcolor = options.bgcolor ? ('background-color:' + options.bgcolor) : '';
       
       var icon = [options.bar1, options.bar2, '&#xe604;'] //图标：信息、问号、TOP
       ,elem = $(['<ul class="'+ ELEM +'">'
-        ,options.bar1 ? '<li class="layui-icon" lay-type="bar1" style="'+ options.bgcolor +'">'+ icon[0] +'</li>' : ''
-        ,options.bar2 ? '<li class="layui-icon" lay-type="bar2" style="'+ options.bgcolor +'">'+ icon[1] +'</li>' : ''
-        ,'<li class="layui-icon '+ TOP_BAR +'" lay-type="top" style="'+ options.bgcolor +'">'+ icon[2] +'</li>'
+        ,options.bar1 ? '<li class="layui-icon" lay-type="bar1" title="'+options.title1+'" style="'+ options.bgcolor +'">'+ icon[0] +'</li>' : ''
+        ,options.bar2 ? '<li class="layui-icon" lay-type="bar2" title="'+options.title2+'" style="'+ options.bgcolor +'">'+ icon[1] +'</li>' : ''
+        ,'<li class="layui-icon '+ TOP_BAR +'" lay-type="top" title="'+options.topTitle+'" style="'+ options.bgcolor +'">'+ icon[2] +'</li>'
       ,'</ul>'].join(''))
       ,topBar = elem.find('.'+TOP_BAR)
       ,scroll = function(){
