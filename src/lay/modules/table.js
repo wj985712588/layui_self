@@ -1446,13 +1446,23 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
                   templet = item2.toolbar || item2.templet;
                 }
               });
-              td.children(ELEM_CELL).html(function(){
+              var result='';
+              if(templet){
+                if(typeof templet === 'string'){
+                  result = laytpl($(templet).html() || value).render(data);
+                }else{
+                  //方法返回
+                  result = templet(data);
+                }
+              }
+/*              td.children(ELEM_CELL).html(function(){
                 return templet ? function(){
                   return typeof templet === 'function' 
                     ? templet(data)
                   : laytpl($(templet).html() || value).render(data)
                 }() : value;
-              }());
+              }());*/
+              td.children(ELEM_CELL).html(result);
               td.data('content', value);
             }
           });
