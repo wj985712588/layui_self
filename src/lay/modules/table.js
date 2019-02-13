@@ -1442,8 +1442,8 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
               var templet, td = tr.children('td[data-field="'+ key +'"]');
               data[key] = value;
               that.eachCols(function(i, item2){
-                if(item2.field == key && item2.templet){
-                  templet = item2.templet;
+                if(item2.field == key && (item2.templet || item2.toolbar)){
+                  templet = item2.toolbar || item2.templet;
                 }
               });
               td.children(ELEM_CELL).html(function(){
