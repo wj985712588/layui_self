@@ -719,7 +719,8 @@
         style.innerHTML = styleText;
       }
 
-      lay(elem).addClass('laydate-theme-molv');
+      // 原先会自动添加molv主题，现在移除
+      // lay(elem).addClass('laydate-theme-molv');
       elem.appendChild(style);
     }
 
